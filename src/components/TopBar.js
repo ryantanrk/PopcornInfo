@@ -1,41 +1,56 @@
 import "../css/TopBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faChartLine } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faClock } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faCompass } from "@fortawesome/free-solid-svg-icons";
+import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 function TopBar() {
     return (
-        <div class="topbar">
-            <nav class="navbar navbar-expand-lg navbar-dark">
-                <div class="container-fluid">
-                    <span class="navbar-brand">Popcorn Info</span>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+        <div className="topbar">
+            <nav className="navbar navbar-expand-lg navbar-dark">
+                <div className="container-fluid">
+                    <span className="navbar-brand">Popcorn Info</span>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                        <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <button class="btn nav-link">Trending</button>
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li className="nav-item">
+                                <button className="btn nav-link"><FontAwesomeIcon icon={faChartLine}/> Trending</button>
                             </li>
-                            <li class="nav-item">
-                                <button class="btn nav-link">Browse</button>
+                            <li className="nav-item">
+                                <button className="btn nav-link"><FontAwesomeIcon icon={faCompass}/> Browse</button>
                             </li>
-                            <li class="nav-item dropdown">
-                                <button class="btn nav-link dropdown-toggle" id="fydropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">For You</button>
-                                <ul class="dropdown-menu" aria-labelledby="fydropdown">
-                                    <button class="btn dropdown-item">Favorites</button>
-                                    <button class="btn dropdown-item">Watch Later</button>
-                                    <hr class="dropdown-divider"/>
-                                    <button class="btn dropdown-item">Reviews</button>
+                            <li className="nav-item dropdown">
+                                <button className="btn nav-link dropdown-toggle" id="fydropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <FontAwesomeIcon icon={faUser}/> For You
+                                </button>
+                                <ul className="dropdown-menu" aria-labelledby="fydropdown">
+                                    <button className="btn dropdown-item"><FontAwesomeIcon icon={faHeart}/> Favorites</button>
+                                    <button className="btn dropdown-item"><FontAwesomeIcon icon={faClock}/> Watch Later</button>
+                                    <hr className="dropdown-divider"/>
+                                    <button className="btn dropdown-item"><FontAwesomeIcon icon={faStar}/> Reviews</button>
                                 </ul>
                             </li>
-                            
                         </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search movies..." aria-label="Search"/>
-                            <button class="btn btn-outline-success me-2" type="submit"><FontAwesomeIcon icon={ faSearch }/></button>
+                        <form className="d-flex my-2">
+                            <input className="form-control me-2" type="search" placeholder="Search movies/TV shows..." aria-label="Search"/>
+                            <button className="btn btn-outline-success me-2" type="submit"><FontAwesomeIcon icon={ faSearch }/></button>
                         </form>
-                        <button class="btn btn-success">Account</button>
+                        <div className="dropdown">
+                            <button className="btn btn-success" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <FontAwesomeIcon icon={faUserCircle}/>
+                            </button>
+                            <ul className="dropdown-menu" aria-labelledby="accountDropdown">
+                                <button className="btn dropdown-item">yo</button>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </nav>
