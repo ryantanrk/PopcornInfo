@@ -14,10 +14,11 @@ async function getFromApi({movieID}) {
 	}
 }
 
-
 function App() {
 	const [data, setData] = useState([]);
+	const [config, setConfig] = useState([]);
 
+	//useeffect for data
 	useEffect(() => {
 		async function getTrending() {
 			try {
@@ -33,11 +34,26 @@ function App() {
 		getTrending();
 	}, []);
 
+	//useeffect for config
+	useEffect(() => {
+		async function getConfig() {
+			try {
+				let response = await fetch('https://api.themoviedb.org/3/configuration?api_key=' + api_key);
+				let responseJson = await response.json();
+				setConfig(responseJson);
+			}
+			catch (error) {
+				console.error("error", error);
+			}
+		}
+
+		getConfig();
+	}, []);
+
   	return (
     	<div className="App">
-			<h1>Popcorn Info</h1>
 			<h2>Trending</h2>
-			{data.map((d) => <Show key={d.id} show={d}/>)}
+			{data.map((d) => <Show key={d.id} show={d} imgCfg={config.images}/>)}
     	</div>
   	);
 }

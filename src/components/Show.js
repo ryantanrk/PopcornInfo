@@ -1,8 +1,9 @@
+import '../css/Show.css';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/fontawesome-free-solid';
 
-function Show({show}) {
+function Show({show, imgCfg}) {
     //title of the show can be show.name or show.title depending if tv show / movie
     var name = show.name ? show.name : show.title;
 
@@ -21,15 +22,13 @@ function Show({show}) {
     }
 
     //get image
-
+    var imgSrc = imgCfg.base_url + imgCfg.backdrop_sizes[0] + show.poster_path;
     
     return (
-        <div>
-            <button className="btn btn-light">
-                <img src="" alt={name}/>
-                <br/>
+        <div class="show">
+            <button className="showBtn">
+                <img width="150" src={imgSrc} alt={name}/>
                 <span className="name">{name}</span>
-                <br/>
                 <span className="oriname">{oriname}</span>
                 <pre>{show.vote_average} <FontAwesomeIcon icon={faStar}/></pre>
             </button>
@@ -37,12 +36,9 @@ function Show({show}) {
     );
 }
 
-Show.defaultProps = {
-    text: "Button",
-}
-
 Show.propTypes = {
     show: PropTypes.object,
+    imgCfg: PropTypes.object
 }
 
 export default Show;

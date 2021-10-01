@@ -1,0 +1,13 @@
+.showBtn {
+    border:none;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #444444;
+    color: white;
+    max-width: 200px;
+}
+
+.showBtn > span {
+    white-space: normal;
+    display: block;
+}
