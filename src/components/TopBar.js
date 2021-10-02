@@ -1,5 +1,6 @@
 import "../css/TopBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import { faSearch, faFilm, faUserPlus, faHeart, faClock, faStar, faTv, faUserCircle, faHome } from "@fortawesome/free-solid-svg-icons";
 
 function TopBar() {
@@ -15,13 +16,13 @@ function TopBar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <button className="btn nav-link"><FontAwesomeIcon icon={faHome}/> Home</button>
+                                <Link to="/" className="btn nav-link"><FontAwesomeIcon icon={faHome}/> Home</Link>
                             </li>
                             <li className="nav-item">
-                                <button className="btn nav-link"><FontAwesomeIcon icon={faFilm}/> Movies</button>
+                                <Link to="/movies" className="btn nav-link"><FontAwesomeIcon icon={faFilm}/> Movies</Link>
                             </li>
                             <li className="nav-item">
-                                <button className="btn nav-link"><FontAwesomeIcon icon={faTv}/> Series</button>
+                                <Link to="/series" className="btn nav-link"><FontAwesomeIcon icon={faTv}/> Series</Link>
                             </li>
                         </ul>
                         <form className="d-flex my-2">

@@ -1,15 +1,39 @@
 import '../css/App.css';
-import {api_key} from '../config.json';
-import ShowList from './ShowList';
+import TopBar from './TopBar';
+import MainView from './MainView';
+import MovieView from './MovieView';
+import SeriesView from './SeriesView';
+import Movie from './Movie';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
+//main interface where different views are being displayed at
+//default is MainView
 function App() {
   	return (
-    	<div className="App">
-			<h2>Trending</h2>
-			<div>
-				<ShowList url={"https://api.themoviedb.org/3/trending/all/week?api_key=" + api_key} />
+		<Router>
+			<div className="App">
+				<TopBar />
+				<div className="content">
+					<Switch>
+						<Route exact path="/">
+							<MainView />
+						</Route>
+						<Route exact path="/movies">
+							<MovieView />
+						</Route>
+						<Route exact path="/series">
+							<SeriesView />
+						</Route>
+						<Route exact path="/movie/:id">
+							<Movie />
+						</Route>
+						<Route exact path="/series/:id">
+							{/* single series view */}
+						</Route>
+					</Switch>
+				</div>
 			</div>
-    	</div>
+		</Router>
   	);
 }
 

@@ -1,16 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import TopBar from './components/TopBar';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
-
-ReactDOM.render(
-  <React.StrictMode>
-    <TopBar />
-  </React.StrictMode>,
-  document.getElementById('topbar')
-);
 
 ReactDOM.render(
   <React.StrictMode>

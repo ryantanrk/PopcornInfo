@@ -7,11 +7,19 @@
     max-width: 200vw;
     max-height: 350vh;
     margin: 8px;
+    
+    box-shadow: 2px 2px 8px black;
 }
 
 .showBtn:hover {
     filter: brightness(120%);
-    transition: filter 0.2s;
+    transform: scale(1.1, 1.1);
+    transition: filter 0.2s, transform 0.5s ease;
+}
+
+.showBtn:hover:after {
+    transform: scale(1.0, 1.0);
+    transition: transform 0.5s;
 }
 
 .showImg {
