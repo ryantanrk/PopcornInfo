@@ -22,11 +22,14 @@ function Show({show, imgCfg}) {
     }
 
     //get image
-    var imgSrc = imgCfg.secure_base_url + imgCfg.backdrop_sizes[0] + show.poster_path;
+    var imgSrc;
+    if (imgCfg) {
+        imgSrc = imgCfg.base_url + imgCfg.backdrop_sizes[0] + show.poster_path;
+    }
     
     return (
         <button className="showBtn col-2">
-            <img className="showImg" width="150" src={imgSrc} alt={name}/>
+            <img className="showImg" src={imgSrc} alt={name}/>
             <span className="name">{name}</span>
             <span className="oriname">{oriname}</span>
             <pre>{show.vote_average} <FontAwesomeIcon icon={faStar}/></pre>

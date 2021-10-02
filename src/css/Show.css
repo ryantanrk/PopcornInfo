@@ -9,10 +9,18 @@
     margin: 5px;
 }
 
+.showBtn:hover {
+    filter: brightness(120%);
+    transition: filter 0.2s;
+}
+
 .showBtn > span {
     display: block;
 }
 
 .showImg {
     position: relative;
+    width: 100%;
+    max-width: 150px;
+    height: auto;
 }
