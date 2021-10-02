@@ -4,9 +4,9 @@
     padding: 8px 10px;
     background-color: #444444;
     color: white;
-    max-width: 200px;
-    max-height: 350px;
-    margin: 5px;
+    max-width: 200vw;
+    max-height: 350vh;
+    margin: 8px;
 }
 
 .showBtn:hover {
@@ -14,13 +14,26 @@
     transition: filter 0.2s;
 }
 
+.showImg {
+    position: relative;
+    width: 100%;
+    max-width: 200vw;
+    height: auto;
+}
+
 .showBtn > span {
     display: block;
 }
 
-.showImg {
-    position: relative;
-    width: 100%;
-    max-width: 150px;
-    height: auto;
+.name {
+    font-size: 18px;
+}
+
+.oriname {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.rating {
+    font-size: 12px;
 }

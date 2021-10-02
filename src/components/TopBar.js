@@ -21,11 +21,11 @@ function TopBar() {
                                 <button className="btn nav-link"><FontAwesomeIcon icon={faFilm}/> Movies</button>
                             </li>
                             <li className="nav-item">
-                                <button className="btn nav-link"><FontAwesomeIcon icon={faTv}/> TV Shows</button>
+                                <button className="btn nav-link"><FontAwesomeIcon icon={faTv}/> Series</button>
                             </li>
                         </ul>
                         <form className="d-flex my-2">
-                            <input className="form-control me-2" type="search" placeholder="Search movies/TV shows..." aria-label="Search"/>
+                            <input className="form-control me-2" type="search" placeholder="Search shows..." aria-label="Search"/>
                             <button className="btn btn-outline-success me-2" type="submit"><FontAwesomeIcon icon={faSearch}/></button>
                         </form>
                         <div className="dropdown">
