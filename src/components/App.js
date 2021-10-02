@@ -27,7 +27,7 @@ function App() {
 						<Route exact path="/movie/:id">
 							<Movie />
 						</Route>
-						<Route exact path="/series/:id">
+						<Route exact path="/tv/:id">
 							{/* single series view */}
 						</Route>
 					</Switch>

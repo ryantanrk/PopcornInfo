@@ -2,6 +2,7 @@ import '../css/ShowButton.css';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/fontawesome-free-solid';
+import { Link } from 'react-router-dom';
 
 function ShowButton({show, imgCfg}) {
     //title of the show can be show.name or show.title depending if the show is a series or movie
@@ -26,14 +27,19 @@ function ShowButton({show, imgCfg}) {
     if (imgCfg) {
         imgSrc = imgCfg.base_url + imgCfg.backdrop_sizes[0] + show.poster_path;
     }
+
+    //get type
+    var type = show.media_type;
     
     return (
-        <button className="showBtn col-md-2">
-            <img className="showImg" src={imgSrc} alt={name}/>
-            <span className="name"><strong>{name}</strong></span>
-            <span className="oriname">{oriname}</span>
-            <span className="rating">{show.vote_average} <FontAwesomeIcon icon={faStar}/></span>
-        </button>
+        <Link to={'/' + type + '/' + show.id}>
+            <button className="showBtn col-md-2">
+                <img className="showImg" src={imgSrc} alt={name}/>
+                <span className="name"><strong>{name}</strong></span>
+                <span className="oriname">{oriname}</span>
+                <span className="rating">{show.vote_average} <FontAwesomeIcon icon={faStar}/></span>
+            </button>
+        </Link>
     );
 }
 
