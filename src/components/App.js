@@ -3,16 +3,16 @@ import Show from './Show';
 import {api_key} from '../config.json';
 import {useState, useEffect} from 'react';
 
-async function getFromApi({movieID}) {
-	try {
-		let response = await fetch('https://api.themoviedb.org/3/movie/' + {movieID} + '?api_key=' + api_key);
-		let responseJson = await response.json();
-		return responseJson;
-	}
-	catch (error) {
-		console.error(error);
-	}
-}
+// async function getFromApi({movieID}) {
+// 	try {
+// 		let response = await fetch('https://api.themoviedb.org/3/movie/' + {movieID} + '?api_key=' + api_key);
+// 		let responseJson = await response.json();
+// 		return responseJson;
+// 	}
+// 	catch (error) {
+// 		console.error(error);
+// 	}
+// }
 
 function App() {
 	const [data, setData] = useState([]);
@@ -22,9 +22,9 @@ function App() {
 	useEffect(() => {
 		async function getTrending() {
 			try {
-				let response = await fetch('https://api.themoviedb.org/3/trending/all/week?api_key=' + api_key);
-				let responseJson = await response.json();
-				setData(responseJson.results);
+				await fetch('https://api.themoviedb.org/3/trending/all/week?api_key=' + api_key)
+				.then(response => response.json())
+				.then(data => setData(data.results));
 			}
 			catch (error) {
 				console.error("error", error);
@@ -38,9 +38,9 @@ function App() {
 	useEffect(() => {
 		async function getConfig() {
 			try {
-				let response = await fetch('https://api.themoviedb.org/3/configuration?api_key=' + api_key);
-				let responseJson = await response.json();
-				setConfig(responseJson);
+				await fetch('https://api.themoviedb.org/3/configuration?api_key=' + api_key)
+				.then(response => response.json())
+				.then(cfg => setConfig(cfg));
 			}
 			catch (error) {
 				console.error("error", error);
