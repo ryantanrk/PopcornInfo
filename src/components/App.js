@@ -51,7 +51,7 @@ function App() {
 	}, []);
 
   	return (
-    	<div className="App">
+    	<div className="App row">
 			<h2>Trending</h2>
 			{data.map((d) => <Show key={d.id} show={d} imgCfg={config.images}/>)}
     	</div>
