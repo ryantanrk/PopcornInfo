@@ -33,15 +33,15 @@
     display: block;
 }
 
-.name {
+.showBtn > .name {
     font-size: 18px;
 }
 
-.oriname {
+.showBtn > .oriname {
     font-size: 14px;
     font-style: italic;
 }
 
-.rating {
+.showBtn > .rating {
     font-size: 12px;
 }

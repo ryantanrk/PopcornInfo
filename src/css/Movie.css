@@ -1,0 +1,44 @@
+.details {
+    text-align: left;
+}
+
+.details > .oriname, .releasedate, .description, .genre  {
+    display: block;
+}
+
+.details > .rating {
+    text-align: right;
+    top: 21vh;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.details > .year {
+    font-size: 50px;
+    font-style: italic;
+    color: lightgray;
+}
+
+.details > .title {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.movieImg {
+    max-width: 50vh;
+    height: auto;
+}
+
+.btn-social {
+    text-align: center;
+    background-color: white;
+    height: auto;
+    width: 35px;
+    border-radius: 50%;
+    font-size: 15px;
+    
+}
+
+.add {
+    justify-content: center;
+}
