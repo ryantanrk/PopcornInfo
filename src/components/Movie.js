@@ -110,15 +110,19 @@ function Movie() {
     return (
         <div className="movieView">
             <h1>Movie Info</h1>
-            <div className="col-md-4">
-				<img className="movieImg" src={imgUrl} alt={name}/>
-				<span className="title">{name}</span>
-				<span className="oriname">{oriname}</span>
-				<span className="rating"><FontAwesomeIcon icon={faStar}/> {show.vote_average}</span>
-				<span className="description">Overview: {show.overview}</span>
-				<span className="releaseDate">Release Date: {show.release_date}</span>
-				<span className="lang">Language: {show.original_language}</span>
-            </div>
+			<div class="row">
+				<div className="col-md-4">
+					<img className="movieImg" src={imgUrl} alt={name}/>
+				</div>
+				<div className="details col-md-4">
+					<span className="title">{name}</span>
+					<span className="oriname">{oriname}</span>
+					<span className="rating"><FontAwesomeIcon icon={faStar}/> {show.vote_average}</span>
+					<span className="description">Overview: {show.overview}</span>
+					<span className="releaseDate">Release Date: {show.release_date}</span>
+					<span className="lang">Language: {show.original_language}</span>
+				</div>
+			</div>
         </div>
     );
 }

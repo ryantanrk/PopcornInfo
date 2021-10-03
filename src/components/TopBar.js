@@ -4,9 +4,22 @@ import { Link } from "react-router-dom";
 import { faSearch, faFilm, faUserPlus, faHeart, faClock, faStar, faTv, faUserCircle, faHome } from "@fortawesome/free-solid-svg-icons";
 
 function TopBar() {
+    //change classes of navbar when scrolling
+    var navbar = document.getElementById("mynav");
+    window.onscroll = function () {
+        if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
+            navbar.classList.add("mynav-transparent");
+            navbar.classList.remove("mynav-opaque");
+        }
+        else {
+            navbar.classList.remove("mynav-transparent");
+            navbar.classList.add("mynav-opaque");
+        }
+    };
+
     return (
         <div className="topbar">
-            <nav className="navbar navbar-expand-lg navbar-dark sticky">
+            <nav id="mynav" className="mynav-opaque navbar navbar-expand-lg navbar-dark fixed-top">
                 <div className="container-fluid">
                     <span className="navbar-brand">Popcorn Info</span>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 

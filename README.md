@@ -17,3 +17,11 @@ Runs on [Node.JS](https://nodejs.org/).
 
 ## API
 All data used by this web application is from [The Movie Database (TMDb)](https://www.themoviedb.org/)
+
+## To do
+- adjust layout of single movie/tv view
+- add favorite function
+- trending: show all from api, 5 on a single view
+- search function
+- transition between pages
+- movies/tv shows: show all
