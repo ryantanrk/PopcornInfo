@@ -7,6 +7,9 @@ import {useState, useEffect} from 'react';
 function ShowList({url}) {
 	const [data, setData] = useState([]);
 	const [config, setConfig] = useState([]);
+	//pending states
+	const [dataIsPending, setDPending] = useState(true);
+	const [configIsPending, setCPending] = useState(true);
 
 	//useeffect for data
 	useEffect(() => {
@@ -20,7 +23,10 @@ function ShowList({url}) {
 				}
 				return response.json();
 			})
-			.then(data => setData(data.results))
+			.then(data => {
+				setData(data.results);
+				setDPending(false);
+			})
 			.catch(e => {
 				if (e.name === "AbortError") {
 					console.log("fetch aborted");
@@ -49,7 +55,10 @@ function ShowList({url}) {
 					}
 					return response.json();
 				})
-				.then(cfg => setConfig(cfg))
+				.then(cfg => {
+					setConfig(cfg);
+					setCPending(false);
+				})
 				.catch(e => {
 					if (e.name === "AbortError") {
 						console.log('config fetch aborted');
@@ -71,7 +80,8 @@ function ShowList({url}) {
 
   	return (
     	<div className="ShowList">
-			{data.map((d) => <ShowButton key={d.id} show={d} imgCfg={config.images}/>)}
+			{(dataIsPending && configIsPending) && <div>Loading...</div>}
+			{(data && config) && (data.map((d) => <ShowButton key={d.id} show={d} imgCfg={config.images}/>))}
     	</div>
   	);
 }

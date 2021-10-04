@@ -7,7 +7,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStar, faHeart, faLink, faPlus} from '@fortawesome/free-solid-svg-icons';
 import {faFacebookF, faTwitter, faTumblr, faDiscord, faReddit} from '@fortawesome/free-brands-svg-icons';
 
-function Movie() {
+function Tv() {
     //get show first
     const { id } = useParams();
     const [show, setShow] = useState([]);
@@ -21,7 +21,7 @@ function Movie() {
         const abort = new AbortController();
         async function getShow() {
 			try {
-				await fetch('https://api.themoviedb.org/3/movie/' + id + '?api_key=' + api_key, {signal: abort.signal})
+				await fetch('https://api.themoviedb.org/3/tv/' + id + '?api_key=' + api_key, {signal: abort.signal})
 				.then(response => {
 					if (!response.ok) {
 						throw Error('show fetch failed');
@@ -127,24 +127,25 @@ function Movie() {
 						<button className="btn btn-primary col-5 mx-2"><FontAwesomeIcon icon={faPlus}/> Watch Later</button>
 					</div>
 					<div className="socials mt-2">
-						<button className="btn-social btn-social-fb btn col-lg"><FontAwesomeIcon icon={faFacebookF}/></button>
-						<button className="btn-social btn-social-twt btn col-lg"><FontAwesomeIcon icon={faTwitter}/></button>
-						<button className="btn-social btn-social-tblr btn col-lg"><FontAwesomeIcon icon={faTumblr}/></button>
-						<button className="btn-social btn-social-rdt btn col-lg"><FontAwesomeIcon icon={faReddit}/></button>
-						<button className="btn-social btn-social-dc btn col-lg"><FontAwesomeIcon icon={faDiscord}/></button>
-						<button className="btn-social btn-social-sl btn col-lg"><FontAwesomeIcon icon={faLink}/></button>
+						<button className="btn-social btn-social-fb btn"><FontAwesomeIcon icon={faFacebookF}/></button>
+						<button className="btn-social btn-social-twt btn"><FontAwesomeIcon icon={faTwitter}/></button>
+						<button className="btn-social btn-social-tblr btn"><FontAwesomeIcon icon={faTumblr}/></button>
+						<button className="btn-social btn-social-rdt btn"><FontAwesomeIcon icon={faReddit}/></button>
+						<button className="btn-social btn-social-dc btn"><FontAwesomeIcon icon={faDiscord}/></button>
+						<button className="btn-social btn-social-sl btn"><FontAwesomeIcon icon={faLink}/></button>
 					</div>
 				</div>
 				<div className="details col-md-8">
 					<span className="title">{name}</span>
-					<span className="year"> ({new Date(show.release_date).getFullYear()})</span>
+					<span className="year"> ({new Date(show.first_air_date).getFullYear()})</span>
 					<span className="rating"><FontAwesomeIcon icon={faStar}/> {show.vote_average}</span>
 					<span className="oriname">{oriname}</span>
+					<span className="ep">Seasons: {show.number_of_seasons}, Episodes: {show.number_of_episodes}</span>
 					<span className="genre">{showGenre.map((g) => g.name).join(", ")}</span>
 					<br/>
 					<span className="description">{show.overview}</span>
 					<br/>
-					<span className="releasedate">Released: {show.release_date}</span>
+					<span className="releasedate">First Aired: {show.first_air_date}</span>
 					<span className="lang">Language: {show.original_language}</span>
 				</div>
 			</div>
@@ -152,8 +153,8 @@ function Movie() {
     );
 }
 
-Movie.propTypes = {
+Tv.propTypes = {
     show: PropTypes.object
 }
 
-export default Movie;
+export default Tv;

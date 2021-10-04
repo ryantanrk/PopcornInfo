@@ -2,13 +2,13 @@
     text-align: left;
 }
 
-.details > .oriname, .releasedate, .description, .genre  {
+.details > .oriname, .releasedate, .description, .genre, .ep  {
     display: block;
 }
 
 .details > .rating {
-    text-align: right;
-    top: 21vh;
+    position: relative;
+    float: right;
     font-size: 25px;
     font-weight: bold;
 }
@@ -24,19 +24,24 @@
     font-weight: bold;
 }
 
+.details > .oriname {
+    font-size: 40px;
+    color: gray;
+}
+
 .movieImg {
     max-width: 50vh;
     height: auto;
 }
 
 .btn-social {
+    position: relative;
     text-align: center;
     background-color: white;
     height: auto;
     width: 35px;
-    border-radius: 50%;
+    border-radius: 100%;
     font-size: 15px;
-    
 }
 
 .add {
