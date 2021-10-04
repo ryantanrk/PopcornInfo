@@ -15,6 +15,9 @@ function Movie() {
 	const [oriname, setOriname] = useState([]);
 	const [imgUrl, setImg] = useState([]);
 	const [showGenre, setShowGenre] = useState([]);
+	//pending states
+	const [dataIsPending, setDPending] = useState(true);
+	const [configIsPending, setCPending] = useState(true);
 
     //useeffect for show
     useEffect(() => {
@@ -54,6 +57,7 @@ function Movie() {
 					//get show genre ids
 					var genres = show.genres;
 					setShowGenre(genres);
+					setDPending(false); //set pending state
 				})
 				.catch(e => {
 					if (e.name === "AbortError") {
@@ -95,6 +99,7 @@ function Movie() {
 						imgSrc = imgCfg.base_url + imgCfg.backdrop_sizes[1] + show.poster_path;
 					}
 					setImg(imgSrc);
+					setCPending(false); //set pending state
 				})
 				.catch(e => {
 					if (e.name === "AbortError") {
@@ -117,6 +122,8 @@ function Movie() {
 
     return (
         <div className="movieView">
+			{(dataIsPending && configIsPending) && <div>Loading...</div>}
+			{(show && imgUrl) && 
 			<div className="row">
 				<div className="col-md-4">
 					<div className="row d-flex justify-content-center">
@@ -148,6 +155,7 @@ function Movie() {
 					<span className="lang">Language: {show.original_language}</span>
 				</div>
 			</div>
+			}
         </div>
     );
 }

@@ -15,6 +15,9 @@ function Tv() {
 	const [oriname, setOriname] = useState([]);
 	const [imgUrl, setImg] = useState([]);
 	const [showGenre, setShowGenre] = useState([]);
+	//pending states
+	const [dataIsPending, setDPending] = useState(true);
+	const [configIsPending, setCPending] = useState(true);
 
     //useeffect for show
     useEffect(() => {
@@ -54,6 +57,9 @@ function Tv() {
 					//get show genre ids
 					var genres = show.genres;
 					setShowGenre(genres);
+
+					//set pending state
+					setDPending(false);
 				})
 				.catch(e => {
 					if (e.name === "AbortError") {
@@ -95,6 +101,7 @@ function Tv() {
 						imgSrc = imgCfg.base_url + imgCfg.backdrop_sizes[1] + show.poster_path;
 					}
 					setImg(imgSrc);
+					setCPending(false);
 				})
 				.catch(e => {
 					if (e.name === "AbortError") {
@@ -117,6 +124,7 @@ function Tv() {
 
     return (
         <div className="movieView">
+			{(dataIsPending && configIsPending) && <div>Loading...</div>}
 			<div className="row">
 				<div className="col-md-4">
 					<div className="row d-flex justify-content-center">
@@ -126,7 +134,7 @@ function Tv() {
 						<button className="btn btn-success col-5 mx-2"><FontAwesomeIcon icon={faHeart}/> Favourite</button>
 						<button className="btn btn-primary col-5 mx-2"><FontAwesomeIcon icon={faPlus}/> Watch Later</button>
 					</div>
-					<div className="socials mt-2">
+					<div className="socials row mt-2">
 						<button className="btn-social btn-social-fb btn mx-1"><FontAwesomeIcon icon={faFacebookF}/></button>
 						<button className="btn-social btn-social-twt btn mx-1"><FontAwesomeIcon icon={faTwitter}/></button>
 						<button className="btn-social btn-social-tblr btn mx-1"><FontAwesomeIcon icon={faTumblr}/></button>
