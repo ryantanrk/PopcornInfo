@@ -21,4 +21,4 @@ All data used by this web application is from [The Movie Database (TMDb)](https:
 ## To do
 - infinite scroller
 - search function
-- genres
+- filter by genres
