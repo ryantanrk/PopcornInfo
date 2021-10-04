@@ -34,14 +34,24 @@
     height: auto;
 }
 
+.socials {
+    justify-content: center;
+}
+
 .btn-social {
-    position: relative;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: white;
-    height: auto;
-    width: 35px;
+    height: 30px;
+    width: 30px;
     border-radius: 100%;
     font-size: 15px;
+}
+
+.btn-social:hover {
+    filter: brightness(0.8);
+    transition: filter 0.5s;
 }
 
 .add {

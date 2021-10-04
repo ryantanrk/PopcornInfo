@@ -126,13 +126,13 @@ function Movie() {
 						<button className="btn btn-success col-5 mx-2"><FontAwesomeIcon icon={faHeart}/> Favourite</button>
 						<button className="btn btn-primary col-5 mx-2"><FontAwesomeIcon icon={faPlus}/> Watch Later</button>
 					</div>
-					<div className="socials mt-2">
-						<button className="btn-social btn-social-fb btn col-lg"><FontAwesomeIcon icon={faFacebookF}/></button>
-						<button className="btn-social btn-social-twt btn col-lg"><FontAwesomeIcon icon={faTwitter}/></button>
-						<button className="btn-social btn-social-tblr btn col-lg"><FontAwesomeIcon icon={faTumblr}/></button>
-						<button className="btn-social btn-social-rdt btn col-lg"><FontAwesomeIcon icon={faReddit}/></button>
-						<button className="btn-social btn-social-dc btn col-lg"><FontAwesomeIcon icon={faDiscord}/></button>
-						<button className="btn-social btn-social-sl btn col-lg"><FontAwesomeIcon icon={faLink}/></button>
+					<div className="socials row mt-2">
+						<button className="btn-social btn-social-fb btn mx-1"><FontAwesomeIcon icon={faFacebookF}/></button>
+						<button className="btn-social btn-social-twt btn mx-1"><FontAwesomeIcon icon={faTwitter}/></button>
+						<button className="btn-social btn-social-tblr btn mx-1"><FontAwesomeIcon icon={faTumblr}/></button>
+						<button className="btn-social btn-social-rdt btn mx-1"><FontAwesomeIcon icon={faReddit}/></button>
+						<button className="btn-social btn-social-dc btn mx-1"><FontAwesomeIcon icon={faDiscord}/></button>
+						<button className="btn-social btn-social-sl btn mx-1"><FontAwesomeIcon icon={faLink}/></button>
 					</div>
 				</div>
 				<div className="details col-md-8">
