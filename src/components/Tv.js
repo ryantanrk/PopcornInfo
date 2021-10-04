@@ -125,6 +125,7 @@ function Tv() {
     return (
         <div className="movieView">
 			{(dataIsPending && configIsPending) && <div>Loading...</div>}
+			{(!dataIsPending && !configIsPending) &&
 			<div className="row">
 				<div className="col-md-4">
 					<div className="row d-flex justify-content-center">
@@ -157,6 +158,7 @@ function Tv() {
 					<span className="lang">Language: {show.original_language}</span>
 				</div>
 			</div>
+			}
         </div>
     );
 }

@@ -123,7 +123,7 @@ function Movie() {
     return (
         <div className="movieView">
 			{(dataIsPending && configIsPending) && <div>Loading...</div>}
-			{(show && imgUrl) && 
+			{(!dataIsPending && !configIsPending) && 
 			<div className="row">
 				<div className="col-md-4">
 					<div className="row d-flex justify-content-center">

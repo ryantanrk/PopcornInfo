@@ -81,7 +81,7 @@ function ShowList({url}) {
   	return (
     	<div className="ShowList">
 			{(dataIsPending && configIsPending) && <div>Loading...</div>}
-			{(data && config) && (data.map((d) => <ShowButton key={d.id} show={d} imgCfg={config.images}/>))}
+			{(!dataIsPending && !configIsPending) && (data.map((d) => <ShowButton key={d.id} show={d} imgCfg={config.images}/>))}
     	</div>
   	);
 }
