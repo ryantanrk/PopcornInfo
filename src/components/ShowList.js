@@ -4,7 +4,7 @@ import ShowButton from './ShowButton';
 import {api_key} from '../config.json';
 import {useState, useEffect} from 'react';
 
-function ShowList({url}) {
+function ShowList({url, type}) {
 	const [data, setData] = useState([]);
 	const [config, setConfig] = useState([]);
 	//pending states
@@ -15,7 +15,7 @@ function ShowList({url}) {
 	useEffect(() => {
 		const abort = new AbortController();
 
-		async function getTrending() {
+		async function getData() {
 			await fetch(url, {signal: abort.signal})
 			.then(response => {
 				if (!response.ok) {
@@ -37,7 +37,7 @@ function ShowList({url}) {
 			});
 		}
 
-		getTrending();
+		getData();
 
 		return () => abort.abort();
 	}, [url]);
@@ -81,13 +81,14 @@ function ShowList({url}) {
   	return (
     	<div className="ShowList">
 			{(dataIsPending && configIsPending) && <div>Loading...</div>}
-			{(!dataIsPending && !configIsPending) && (data.map((d) => <ShowButton key={d.id} show={d} imgCfg={config.images}/>))}
+			{(!dataIsPending && !configIsPending) && (data.map((d) => <ShowButton key={d.id} show={d} typeA={type} imgCfg={config.images}/>))}
     	</div>
   	);
 }
 
 ShowList.propTypes = {
-	url: PropTypes.string.isRequired
+	url: PropTypes.string.isRequired,
+	type: PropTypes.string
 }
 
 export default ShowList;

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/fontawesome-free-solid';
 import { Link } from 'react-router-dom';
 
-function ShowButton({show, imgCfg}) {
+function ShowButton({show, imgCfg, typeA}) {
     //title of the show can be show.name or show.title depending if the show is a series or movie
     var name = show.name ? show.name : show.title;
 
@@ -30,6 +30,10 @@ function ShowButton({show, imgCfg}) {
 
     //get type
     var type = show.media_type;
+
+    if (!type) {
+        type = typeA;
+    }
     
     return (
         <Link to={'/' + type + '/' + show.id}>
@@ -45,7 +49,8 @@ function ShowButton({show, imgCfg}) {
 
 ShowButton.propTypes = {
     show: PropTypes.object,
-    imgCfg: PropTypes.object
+    imgCfg: PropTypes.object,
+    typeA: PropTypes.string
 }
 
 export default ShowButton;
