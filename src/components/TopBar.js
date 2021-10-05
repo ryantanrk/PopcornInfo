@@ -1,7 +1,7 @@
 import "../css/TopBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import { faSearch, faFilm, faUserPlus, faHeart, faClock, faStar, faTv, faUserCircle, faHome } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faFilm, faUserPlus, faHeart, faClock, faStar, faTv, faUserCircle, faHome, faInfo } from "@fortawesome/free-solid-svg-icons";
 
 function TopBar() {
     return (
@@ -23,6 +23,9 @@ function TopBar() {
                             </li>
                             <li className="nav-item">
                                 <Link to="/series" className="btn nav-link"><FontAwesomeIcon icon={faTv}/> Series</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/about" className="btn nav-link"><FontAwesomeIcon icon={faInfo}/> About</Link>
                             </li>
                         </ul>
                         <form className="d-flex my-2">

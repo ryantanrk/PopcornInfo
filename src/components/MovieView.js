@@ -7,7 +7,12 @@ function MovieView() {
     const [url, setUrl] = useState("https://api.themoviedb.org/3/discover/movie?api_key=" + api_key);
 
     function changeGenre(id) {
-        setUrl("https://api.themoviedb.org/3/discover/movie?api_key=" + api_key + "&with_genres=" + id);
+        if (id === "0") {
+            setUrl("https://api.themoviedb.org/3/discover/movie?api_key=" + api_key);
+        }
+        else {
+            setUrl("https://api.themoviedb.org/3/discover/movie?api_key=" + api_key + "&with_genres=" + id);
+        }
     }
 
     //get genres
@@ -46,7 +51,7 @@ function MovieView() {
             <div className="genreFilter d-flex justify-content-end">
                 <div className="input-group my-2">
                     <select id="selectGroupGenre" className="form-select" onChange={v => changeGenre(v.target.value)}>
-                        <option key="">Genre</option>
+                        <option key="0" value="0">Genre</option>
                         {genres.map((g) => <option key={g.id} value={g.id}>{g.name}</option>)}
                     </select>
                 </div>

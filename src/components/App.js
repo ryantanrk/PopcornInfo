@@ -5,6 +5,7 @@ import MovieView from './MovieView';
 import SeriesView from './SeriesView';
 import Movie from './Movie';
 import Tv from './Tv';
+import About from './About';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 //main interface where different views are being displayed at
@@ -30,6 +31,9 @@ function App() {
 						</Route>
 						<Route exact path="/tv/:id">
 							<Tv />
+						</Route>
+						<Route exact path="/about">
+							<About />
 						</Route>
 					</Switch>
 				</div>
