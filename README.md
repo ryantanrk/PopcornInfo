@@ -17,6 +17,3 @@ Runs on [Node.JS](https://nodejs.org/).
 
 ## API
 All data used by this web application is from [The Movie Database (TMDb)](https://www.themoviedb.org/)
-
-## To do
-- about
