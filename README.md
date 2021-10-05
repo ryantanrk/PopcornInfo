@@ -19,6 +19,5 @@ Runs on [Node.JS](https://nodejs.org/).
 All data used by this web application is from [The Movie Database (TMDb)](https://www.themoviedb.org/)
 
 ## To do
-- Company Name in Single Movie and TV view
 - infinite scroller
 - search function

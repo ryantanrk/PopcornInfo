@@ -42,7 +42,7 @@ function SeriesView() {
 
     return (
         <div className="seriesView">
-            <h1>Trending Series</h1>
+            <h1>Series</h1>
             <div className="genreFilter d-flex justify-content-end">
                 <div className="input-group my-2">
                     <select id="selectGroupGenre" className="form-select" onChange={v => changeGenre(v.target.value)}>

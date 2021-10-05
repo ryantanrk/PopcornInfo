@@ -148,6 +148,7 @@ function Movie() {
 					<span className="rating"><FontAwesomeIcon icon={faStar}/> {show.vote_average}</span>
 					<span className="oriname">{oriname}</span>
 					<span className="genre">{showGenre.map((g) => g.name).join(", ")}</span>
+					<span className="companies">{show.production_companies.map((c) => c.name).join(", ")}</span>
 					<br/>
 					<span className="description">{show.overview}</span>
 					<br/>

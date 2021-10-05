@@ -151,6 +151,7 @@ function Tv() {
 					<span className="oriname">{oriname}</span>
 					<span className="ep">Seasons: {show.number_of_seasons}, Episodes: {show.number_of_episodes}</span>
 					<span className="genre">{showGenre.map((g) => g.name).join(", ")}</span>
+					<span className="companies">{show.production_companies.map((c) => c.name).join(", ")}</span>
 					<br/>
 					<span className="description">{show.overview}</span>
 					<br/>

@@ -2,7 +2,7 @@
     text-align: left;
 }
 
-.details > .oriname, .releasedate, .description, .genre, .ep  {
+.details > .oriname, .releasedate, .description, .genre, .ep, .companies {
     display: block;
 }
 
